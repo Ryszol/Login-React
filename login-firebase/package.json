@@ -1,7 +1,7 @@
 {
   "name": "login-firebase",
   "version": "0.1.0",
-  "main": "build/index.html",
+  "main": "./build/index.html",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
