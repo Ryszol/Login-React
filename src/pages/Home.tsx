@@ -1,5 +1,6 @@
 import { useState, FormEvent, useContext } from "react"
 import { useHistory } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 import { AuthContext } from "../contexts/AuthContext"
 
@@ -24,16 +25,29 @@ export function Home() {
     e.preventDefault()
 
     if (!user) {
-      await signIn(email, password)
+      const logged = await signIn(email, password)
+      logged && history.push('/welcome')
+      return
+    }
+
+    if (user.email) {
+      toast.success('You are already logged in.')
       history.push('/welcome')
     }
+
   }
 
   async function handleCreateUser(e: FormEvent) {
     e.preventDefault()
 
     if (!user) {
-      await createUser(email, password)
+      const created = await createUser(email, password)
+      created && history.push('/welcome')
+      return
+    }
+
+    if (user.email) {
+      toast.error('Log out of your account first.')
       history.push('/welcome')
     }
   }

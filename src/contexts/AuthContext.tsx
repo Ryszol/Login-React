@@ -1,4 +1,6 @@
 import { createContext, ReactNode, useState, useEffect } from 'react'
+import toast from 'react-hot-toast'
+
 import { auth } from '../services/firebase'
 
 type User = {
@@ -8,9 +10,9 @@ type User = {
 
 type AuthContextType = {
   user: User | undefined
-  createUser: (email: string, password: string) => Promise<void>
-  signIn: (email: string, password: string) => Promise<void>
-  signOut: () => Promise<void>
+  createUser: (email: string, password: string) => Promise<boolean>
+  signIn: (email: string, password: string) => Promise<boolean>
+  signOut: () => Promise<boolean>
 }
 
 type AuthContextProviderProps = {
@@ -60,8 +62,13 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         id: user.uid,
         email: user.email
       })
+
+      toast.success('User created.')
+      return true
     } catch (error) {
       console.log(error.code, error.message)
+      toast.error(error.message)
+      return false
     }
   }
 
@@ -80,8 +87,13 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         id: user.uid,
         email: user.email
       })
+
+      toast.success('You are logged in.')
+      return true
     } catch (error) {
       console.log(error.code, error.message)
+      toast.error(error.message)
+      return false
     }
   }
 
@@ -89,9 +101,12 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     try {
       await auth.signOut()
       setUser(undefined)
-      console.log('logout')
+      toast.success('You are logged out.')
+      return true
     } catch (error) {
       console.log(error.code, error.message)
+      toast.error(error.message)
+      return false
     }
   }
 

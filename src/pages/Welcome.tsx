@@ -16,7 +16,10 @@ export function Welcome() {
     if (user) {
       await signOut()
       history.push('/')
+      return
     }
+
+    history.push('/')
   }
 
   return (
