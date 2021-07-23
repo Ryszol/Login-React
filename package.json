@@ -1,5 +1,5 @@
 {
-  "name": "login-firebase",
+  "name": "login-react",
   "version": "0.1.0",
   "main": "./build/index.html",
   "private": true,

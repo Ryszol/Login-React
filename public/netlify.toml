@@ -1,6 +1,6 @@
 [build]
-  base = "login-firebase/"
-  publish = "login-firebase/build/"
+  base = ""
+  publish = "build/"
   command = "npm run build"
 
 [[redirects]]
