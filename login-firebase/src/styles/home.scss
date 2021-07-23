@@ -1,0 +1,144 @@
+#home {
+  display: flex;
+  align-items: stretch;
+  height: 100vh;
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 5;
+
+    font-family: 'Poppins', sans-serif;
+
+    .text {
+      margin: 16px;
+      max-width: 550px;
+
+      p {
+        margin-top: 8px;
+      }
+    }
+    
+    img {
+      max-width: 550px;
+      width: 100%;
+      padding: 16px;
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 4;
+
+    background-color: #3F3D56;
+    color: #F2F2F2;
+
+    .main-content {
+      max-width: 360px;
+      
+      h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        margin-bottom: 32px;
+      }
+
+      .invisible {
+        display: none;
+      }
+    }
+  }
+
+  .form-container {
+    width: 360px;
+    box-shadow: inset 0 0 0 2px #343347;
+    border-radius: 8px;
+
+    .tabs {
+      width: 100%;
+      height: 48px;
+      display: flex;
+
+      .tab {
+        border: 0;
+        color: #F2F2F2;
+        background-color: #343347;
+        flex: 1;
+        cursor: pointer;
+
+
+        &:first-child {
+          border-radius: 8px 0 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 8px 0 0;
+        }
+      }
+
+
+      .active {
+        background-color: #5750CC;
+      }
+    }
+
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+    
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      border: 0;
+      gap: 8px;
+
+      input {
+        height: 40px;
+        background-color: #343347;
+        border: 0;
+        border-radius: 8px;
+        outline: transparent;
+        color: #F2F2F2;
+        padding: 0 16px;
+
+        &[type="password"] {
+          font-family: sans-serif;
+        }
+      }
+
+      ::placeholder {
+        color: #F2F2F2CC;
+      }
+    }
+
+    button {
+      width: 250px;
+      height: 40px;
+      margin: 0 0 16px 0;
+      background-color: #6C63FF;
+      border: 0;
+      border-radius: 8px;
+      color: #F2F2F2;
+      cursor: pointer;
+    }
+
+    p {
+      margin-bottom: 24px;
+
+      > span {
+        color: #6C63FF;
+        cursor: pointer;
+      }
+    }
+  }
+}
