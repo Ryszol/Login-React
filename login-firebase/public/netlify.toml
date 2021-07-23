@@ -1,0 +1,9 @@
+[build]
+  base = "login-firebase/"
+  publish = "login-firebase/build/"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
